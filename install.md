@@ -1,10 +1,10 @@
 ## Installation et Configuration de WordPress avec Apache
 
 ### 1. Installation d'Apache2
-\```bash
+```bash
 sudo apt install apache2  
 sudo systemctl enable apache2
-\```
+```
 
 ### 2. Activation des modules Apache
 \```bash
