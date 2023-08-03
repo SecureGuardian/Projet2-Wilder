@@ -40,14 +40,4 @@ sudo chown -R www-data:www-data /var/www/html/
 ```
 7. Création de la base de données pour Wordpress
 ```bash
-sudo mariadb -e "create database wp202307_projet1cyber; create user 'adminwp202307_projet1cyber'@localhost IDENTIFIED BY 'Notre-super-m0t-de-passe!'; GRANT ALL PRIVILEGES ON wp202307_projetcyber* TO adminwp202307_projet1cyber@localhost; flush privileges; exit;"
-
-
-
-
-
-
-
-
-
-
+sudo mariadb -e "create database wp202307_projet1cyber; create user 'adminwp202307_projet1cyber'@localhost IDENTIFIED BY 'Notre-super-m0t-de-passe!'; GRANT ALL PRIVILEGES ON wp202307_projetcyber* TO adminwp202307_projet1cyber@localhost; flush privileges; exit;"  
