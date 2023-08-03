@@ -7,13 +7,13 @@ sudo systemctl enable apache2
 ```
 
 ### 2. Activation des modules Apache
-\```bash
-sudo a2enmod rewrite  
-sudo a2enmod ssl
-sudo a2enmod deflate
-sudo a2enmod headers
-sudo systemctl restart apache2
-\```
+```bash
+sudo a2enmod rewrite    
+sudo a2enmod ssl  
+sudo a2enmod deflate  
+sudo a2enmod headers  
+sudo systemctl restart apache2  
+```
 
 
 
