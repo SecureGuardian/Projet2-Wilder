@@ -3,6 +3,8 @@
 ### 1. Installation d'Apache2
 \```bash
 sudo apt install apache2
+\```
+\```bash
 sudo systemctl enable apache2
 \```
 
