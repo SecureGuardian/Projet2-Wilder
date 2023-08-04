@@ -1,17 +1,49 @@
 # Introduction
 
-L'objectif de ce document est de fournir une procédure pour renforcer la sécurité d'un serveur Apache qui héberge WordPress. Cette procédure se base sur les recommandations du Centre for Internet Security (CIS) Apache Benchmark et les résultats de l'outil d'audit Lynis.
+The goal of this document is to provide a procedure to strengthen the security of an Apache server hosting WordPress. This procedure is based on the recommendations of the Centre for Internet Security (CIS) Apache Benchmark and the findings from the Lynis audit tool.
 
-## Sommaire
-1. [Hardening de WordPress](#hardening-de-wordpress)
-2. [Hardening de serveur web Apache](#hardening-de-serveur-web-apache)
-3. [Audit Lynis sur Apache - Remédiation](#audit-lynis-sur-apache-remediation)
-4. [Hardening de Ubuntu](#hardening-de-ubuntu)
-5. [Audit Lynis sur Ubuntu - Remédiation](#audit-lynis-sur-ubuntu-remediation)
+## Table of Contents
+1. [Overview](#overview)
+2. [Team Members](#team-members)
+3. [Technology Stack](#technology-stack)
+4. [WordPress Hardening](#wordpress-hardening)
+5. [Apache Web Server Hardening](#apache-web-server-hardening)
+6. [Lynis Audit on Apache - Remediation](#lynis-audit-on-apache-remediation)
+7. [Ubuntu Hardening](#ubuntu-hardening)
+8. [Lynis Audit on Ubuntu - Remediation](#lynis-audit-on-ubuntu-remediation)
 
-## Objectif du document
+## Overview
 
-Ce document a pour objectif d'aider les administrateurs système à renforcer la sécurité de leurs serveurs Apache, en se basant sur les recommandations du CIS Apache Benchmark et les résultats d'un audit Lynis.
+This project focuses on the deployment of WordPress on an Ubuntu server and the securing of various components, including WordPress itself, Apache, and Ubuntu. The team, consisting of three members, diligently collaborated to achieve the project's goals.
+
+## Team Members
+
+### My Role
+
+As the project manager, my responsibilities included:
+
+- Steering the project and ensuring that goals and timelines were met.
+- Securing Apache by implementing appropriate measures to protect against potential vulnerabilities.
+
+### Leslie's Role
+
+Leslie was responsible for:
+
+- Installing WordPress on the server.
+- Implementing security measures for WordPress to ensure protection against common threats.
+
+### David's Role
+
+David's responsibilities encompassed:
+
+- Securing Ubuntu, taking necessary precautions to make sure the operating system was safe and resistant to attacks.
+
+## Technology Stack
+
+- **WordPress**: Used for website content management.
+- **Apache**: Web server used in conjunction with WordPress.
+- **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
+
 
 ## I. Hardening de serveur web Apache
 
