@@ -14,7 +14,7 @@ The goal of this document is to provide a procedure to strengthen the security o
 
 ## Overview
 
-This project focuses on the deployment of WordPress on an Ubuntu server and the securing of various components, including WordPress itself, Apache, and Ubuntu. The team, consisting of three members, diligently collaborated to achieve the project's goals.
+This project focuses on the deployment of WordPress on an Ubuntu server and the securing of various components, including WordPress, Apache, and Ubuntu. The team, consisting of three members, diligently collaborated to achieve the project's goals.
 
 ## Team Members
 
