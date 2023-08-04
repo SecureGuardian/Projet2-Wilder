@@ -44,8 +44,7 @@ David's responsibilities encompassed:
 - **Apache**: Web server used in conjunction with WordPress.
 - **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
 
-### O. WordPress Hardening
-
+### I. WordPress Hardening
 ## What is the Importance of Security for a WordPress Site?
 
 The security of your site is paramount. In case of hacking, the consequences can be very unfortunate and result in:
@@ -201,7 +200,7 @@ Another vital way to strengthen your WordPress security is to always keep it up 
 
 An SSL certificate (Secure Socket Layer) is a means of securing communications between a browser and a web server. It allows for the encryption of sensitive data transmitted between the two, such as the information...
 
-## I. Apache Web Server Hardening
+## II. Apache Web Server Hardening
 
 1. Ensure that the Autoindex module is disabled (Automated)
     ```bash
@@ -281,7 +280,7 @@ An SSL certificate (Secure Socket Layer) is a means of securing communications b
     ```
     - The passwd -S apache command displays the status of the Apache user account.
 
-## II. Lynis Audit on Apache - Remediation
+## III. Lynis Audit on Apache - Remediation
 
 The Lynis audit on Apache raised the following two vulnerabilities:
   the HTTP-6640 flaw - mod_evasive module, and the HTTP-6643 flaw - mod_security module
@@ -338,7 +337,7 @@ The Lynis audit on Apache raised the following two vulnerabilities:
     root@wild-groupe-02:/# a2enmod security2
     root@wild-groupe-02:/# service apache2 restart
     ```
-## III. Ubuntu Hardening
+## IV. Ubuntu Hardening
 ## Summary
 
 1. [General principles of security and hardening](#general-principles-of-security-and-hardening)
@@ -855,7 +854,7 @@ Scan a Windows partition (Fat 32), mounted in "/mnt/D". Audible signal and displ
 root@wild-groupe-02:~$ clamscan --bell -r -i --log=/home/utilisateur/virus.log /mnt/D/
 ```
 
-# IV. Lynis Audit on Ubuntu - Remediation
+# V. Lynis Audit on Ubuntu - Remediation
 
 **Command for lauching Lynis:**
 ```bash 
