@@ -44,7 +44,7 @@ David's responsibilities encompassed:
 - **Apache**: Web server used in conjunction with WordPress.
 - **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
 
-### I. WordPress Hardening
+## I. WordPress Hardening
 ### What is the Importance of Security for a WordPress Site?
 
 The security of your site is paramount. In case of hacking, the consequences can be very unfortunate and result in:
@@ -54,7 +54,7 @@ The security of your site is paramount. In case of hacking, the consequences can
 - degradation of your brand image and possible loss of trust from your current users and/or your future customers.
 - Keep in mind that this kind of mishap does not only happen to others.
 
-## Statistics and Types of Attacks
+### Statistics and Types of Attacks
 
 A quick visit to the presentation page of iThemes Security Pro may be enough to convince you (if you are the stubborn type). According to the data that the company communicates:
 - 50% of cyber-attacks would target very small businesses;
@@ -67,7 +67,7 @@ A quick visit to the presentation page of iThemes Security Pro may be enough to 
   - PHP vulnerabilities, the language under which WordPress runs.
   - downloads of malicious files, etc.
 
-## Securing WordPress
+### Securing WordPress
 
 Some settings to be made in the settings -> ssl tab:
 - Prevent the execution of code in the public "Uploads" folder
@@ -76,7 +76,7 @@ Some settings to be made in the settings -> ssl tab:
 - Block the registration of Internet users when the displayed username and name are identical
 - .htaccess 301 redirection method
 
-## iThemes Security
+### iThemes Security
 
 ### What is iThemes Security?
 
@@ -158,7 +158,7 @@ Now, your WordPress version number should be removed from all locations, includi
 
 This method is much more straightforward than manually editing your theme's files, and it's reversible. If you want to display your WordPress version number again, simply uncheck the box and save your changes.
 
-## Disable XML-RPC
+### Disable XML-RPC
 
 In recent years, XML-RPC has become an increasingly significant target for brute force attacks. One of the hidden features of XML-RPC is that you can use the system.multicall method to execute multiple methods within a single request. This is very useful because it allows the application to pass multiple commands within an HTTP request. But what also happens is that it is used for malicious purposes.
 
@@ -174,7 +174,7 @@ The installation of an extension to disable xmlrpc.php is the simplest way to pr
 
 Once installed, You have nothing else to do: activating the extension will result in the deactivation of XML-RPC.
 
-## WPS Limit Login
+### WPS Limit Login
 
 WPS Limit Login allows you to limit login attempts to your WordPress administration.
 
