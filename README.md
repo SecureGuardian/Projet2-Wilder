@@ -182,7 +182,7 @@ The Lynis audit on Apache raised the following two vulnerabilities:
     root@wild-groupe-02:/# a2enmod security2
     root@wild-groupe-02:/# service apache2 restart
     ```
-## . Ubuntu Hardening
+## III. Ubuntu Hardening
 ## Summary
 
 1. [General principles of security and hardening](#general-principles-of-security-and-hardening)
@@ -194,8 +194,7 @@ The Lynis audit on Apache raised the following two vulnerabilities:
 7. [Certificate SSL/TLS](#certificate-ssl-/-tls)
 8. [Anti-virus](#anti-virus)
 9. [Lynis Audit on Ubuntu - Remediation](#lynis-audit-on-ubuntu-remediation)
-#
-#
+
 ### General principles of security and hardening
 
 **Principle of minimization** 
@@ -714,7 +713,7 @@ root@wild-groupe-02:~$ clamscan --bell -r -i --log=/home/utilisateur/virus.log /
 ```
 
 #
-# Lynis Audit on Ubuntu - Remediation
+# IV. Lynis Audit on Ubuntu - Remediation
 
 **Command for lauching Lynis:**
 ```bash 
