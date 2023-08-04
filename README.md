@@ -182,3 +182,5 @@ The Lynis audit on Apache raised the following two vulnerabilities:
     root@wild-groupe-02:/# a2enmod security2
     root@wild-groupe-02:/# service apache2 restart
     ```
+## . Ubuntu Hardening  
+
