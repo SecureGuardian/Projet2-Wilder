@@ -232,8 +232,7 @@ root@wild-groupe-02:~$ sudo usermod -m -d /home/arakifi arakifi
 
 **Sources:** 
 [sudo command in Linux with Examples](https://www.geeksforgeeks.org/sudo-command-in-linux-with-examples/)
-#
-#
+
 ### Openssh
 OpenSSH is the first connectivity tool for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. Additionally, OpenSSH provides a wide range of secure tunneling features, multiple authentication methods, and sophisticated configuration options. The SSH protocol was designed with the objective of replacing the various unencrypted protocols like rlogin, telnet, rcp and rsh.
 
@@ -263,8 +262,6 @@ We changed the parameters:
 [OpenSSH Wiki](https://fr.wikipedia.org/wiki/OpenSSH)
 [Arch Linux OpenSSH(Français)](https://wiki.archlinux.org/title/OpenSSH_(Fran%C3%A7ais))
 
-#
-#
 ### Iptables
 The Iptables Linux firewall is used to monitor incoming and outgoing traffic to a server and filter it based on user-defined rules, to prevent anyone from gaining access to the system. Using Iptables, you can set rules that will only allow selected traffic on your server.
 
@@ -347,8 +344,6 @@ iptables -P FORWARD ACCEPT
 iptables -P OUTPUT DROP
 
 ```
-#
-#
 ### Nftables
 Nftables is a tool that allows you to do network filtering and take control of the incoming / outgoing flow on our machine. Available since Linux kernel 3.13, nftables is gradually replacing the aging {ip,ip6,arp,eb}tables- It has several significant advantages over iptables. Here are some of the major improvements:
 - Less code duplication / Better written / Fully 64-bit compatible
@@ -388,7 +383,6 @@ There are two types of chaines:
 - **Base chain** – There is no pre-defined chain (INPUT / OUTPUT / FORWARD) as in iptables, so you have to create the chain to which you will attach a hook (place in the flow of a program to be intercepted by a function – in our case the function that manages our chain)
 - **Regular chain** – Does not have a hook. By definition is not traversed but it can be used to process packets.
 
-#
 **Base chain**
 
 **(action - add)**
@@ -424,7 +418,6 @@ There are two types of chaines:
 **table_name:** Table name.
 **chain_name:** Chain name (variable). 
 
-#
 **Regular chain**
 **(action - add)**
 **syntax:** nft add chain [table_familly] [table_name] [chain_name] 
@@ -447,7 +440,6 @@ There are two types of chaines:
 **table_name:** Table name.
 **chain_name:** Chain name (variable). 
 
-#
 **Rules**
 Determine action on packets based on convergence criteria
 **(action - add)**
@@ -473,7 +465,7 @@ Tables of hooks and table family**:
 |   input                 | Arp, bridge, ip, ipv6, inet |  Packets destined for the machine      |
 |   output                | Arp, bridge, ip, ipv6, inet |  Packets sent by the machine           |
 
-#
+
 **Tables of chain types and table family**:                            
 |   Main types            |   Table family              |   Role                                 |
 |-------------------------|-----------------------------|----------------------------------------|
@@ -483,7 +475,7 @@ Tables of hooks and table family**:
 |   input                 | Arp, bridge, ip, ipv6, inet |  Packets destined for the machine      |
 |   output                | Arp, bridge, ip, ipv6, inet |  Packets sent by the machine           |
 
-#
+
 **Main rule settings**:    
 |           Setting                         |         Value                                      |
 |-------------------------------------------|----------------------------------------------------|
@@ -563,7 +555,6 @@ add rule inet firewall input_chain icmp type echo-reply accept
 [Nftables basics](https://www.cyrilaudras.fr/index.php/informatique/services-reseau/110-les-bases-de-nftables)
 [Nftables tutorial](https://www.youtube.com/watch?v=lHLPZlZLWgs)
 
-#
 ### Fail2Ban
 Fail2ban is an application that analyzes the logs of various services (SSH, Apache, FTP, etc.) by looking for matches between patterns defined in its filters and the log entries. When a match is found one or more actions are executed. Typically, fail2ban looks for repeated failed login attempts in the log files and performs a ban by adding a rule to the iptables or nftables firewall to ban the source IP address.
 
@@ -628,7 +619,6 @@ example:
 ```bash
 root@wild-groupe-02:~$ sudo fail2ban-client set sshd unbanip 192.168.1.80
 ```
-#
 ### Certificat SSL/TLS
 For the certificate we used Certbot. Certbot is a free, open-source software tool for automatically using Let's Encrypt certificates on manually administered websites to enable HTTPS. Certbot is created by the Electronic Frontier Foundation (EFF), a 501(c) non-profit organization 3 based in San Francisco, Calif., which champions digital privacy, freedom of expression and innovation.
 
@@ -679,7 +669,6 @@ Either get and install your certificates... Run this command to get a certificat
 **Sources:**
 [Certbot](https://certbot.eff.org/instructions?ws=apache&os=ubuntufocal)
 
-#
 ### Anti-virus
 ClamAV (“Clam AntiVirus”), is anti-virus software for UNIX systems. It is generally used with email servers to filter emails. ClamAV is one of the few antiviruses available under GNU/Linux and MacOS. The targeted viruses are mainly viruses attacking the Microsoft Windows operating system, and not the systems on which ClamAV is installed. The antivirus engine is the libclamav library, written in C, C++.
 
@@ -710,7 +699,6 @@ Scan a Windows partition (Fat 32), mounted in "/mnt/D". Audible signal and displ
 root@wild-groupe-02:~$ clamscan --bell -r -i --log=/home/utilisateur/virus.log /mnt/D/
 ```
 
-#
 # IV. Lynis Audit on Ubuntu - Remediation
 
 **Command for lauching Lynis:**
