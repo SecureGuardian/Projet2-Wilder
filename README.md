@@ -17,7 +17,160 @@ The goal of this document is to provide a procedure to strengthen the security o
 This project focuses on the deployment of WordPress on an Ubuntu server and the securing of various components, including WordPress, Apache, and Ubuntu. The team, consisting of three members, diligently collaborated to achieve the project's goals.
 
 ## Team Members
+# What is the Importance of Security for a WordPress Site?
 
+The security of your site is paramount. In case of hacking, the consequences can be very unfortunate and result in:
+- the loss and theft of numerous data, more or less sensitive, especially those of your customers.
+- a waste of time, as you will have to clean the hacked site and update everything.
+- unforeseen financial expenses, especially if you hire a security expert.
+- degradation of your brand image and possible loss of trust from your current users and/or your future customers.
+- Keep in mind that this kind of mishap does not only happen to others.
+
+## Statistics and Types of Attacks
+
+A quick visit to the presentation page of iThemes Security Pro may be enough to convince you (if you are the stubborn type). According to the data that the company communicates:
+- 50% of cyber-attacks would target very small businesses;
+- 45% of site owners would not be sufficiently prepared to undergo a hacking, in the sense that they have not put in place sufficient protection measures.
+- As the security expert Patchstack indicates in a report published in 2021, almost all detected vulnerabilities come from themes and especially WordPress plugins (99.42% of total flaws). The attacks can be multiple and varied.
+- You can be targeted by:
+  - Cross-site scripting (also called XSS).
+  - Cross site request forgery (CSRF or XSRF).
+  - SQL injections (attacks on your database).
+  - PHP vulnerabilities, the language under which WordPress runs.
+  - downloads of malicious files, etc.
+
+## Securing WordPress
+
+Some settings to be made in the settings -> ssl tab:
+- Prevent the execution of code in the public "Uploads" folder
+- Hide the version of Wordpress
+- Disable account enumeration
+- Block the registration of Internet users when the displayed username and name are identical
+- .htaccess 301 redirection method
+
+## iThemes Security
+
+### What is iThemes Security?
+
+iThemes Security is an extension to protect and secure your WordPress site. It offers different features for this, among which:
+- two-factor authentication
+- protection against brute force attacks
+- password strengthening
+- IP blocking, etc.
+
+With 900K active installations, iThemes Security is one of the most popular security plugins on the official WordPress directory.
+
+### To Protect Your Installation
+
+To protect your installation as much as possible, the free version of iThemes is notably able to:
+- ban the IP addresses of hackers or malicious robots (bots) who wish to access your website.
+- backup the database of your WordPress installation.
+- detect any unauthorized change made to your files.
+- block brute force attacks. In this case, robots (bots) try to discover the username and password of the administrator account of your site by testing different combinations, in order to take control.
+- help you implement two-factor authentication to connect to your site.
+- impose the implementation of strong passwords for all accounts.
+- require connection to your site via SSL, mandatory to implement HTTPS on your site.
+- send you email notifications of any suspicious activity on your site.
+- change the prefix of your website's database.
+- modify the URL of your login page.
+
+However, do not consider iThemes Security as a magic formula to protect you 100%. No security extension can guarantee that, by the way.
+
+### Change the Login URL
+
+Why modify the login URL of your WordPress console?
+- The login URL to your administration interface at its value is by default: yoursite.com/wp-admin
+- Hackers, pirates, and other Web thugs know very well that the website is under WordPress, how? Here is one of the 3 methods used to know:
+  - View the source code of a page on your website to spot multiple references to "WP", i.e. WordPress.
+  - look in the footer of the site to see if a WordPress theme is mentioned.
+  - simpler, with automatic detection tools of the technology used on a site, like Wappalyzer.
+
+Once the hacker knows that your site is under WordPress, the next step is to find the WordPress administration page.
+
+Then it's intrusion by "Brute Force" to find the password and surely other tricks.
+
+"Brute Force" type attacks are apparently the simplest method to access a website's administration. They consist of running a computer program to try thousands of combinations of username and password, over and over, until they find the right one.
+
+Obviously, this task is greatly facilitated if the hackers know the login URL to your WordPress console.
+That's why, it is strongly recommended not to keep the default URL. Thus, you greatly complicate their task.
+So, at least, make life difficult for hackers by preventing them from finding your WordPress admin access page too easily!
+
+In iThemes Security, in the advanced menu, the third tab, "Move the login page", allows you to change the login page to the administration of your site. By default, you can easily access it by entering one of the two URLs below in a web browser:
+- yoursite.fr/wp-admin
+- yoursite.fr/wp-login.php
+
+By modifying it, you make the job of bots that want to connect to your site more complex. The settings allow you to:
+- Change the login slug, i.e., the last part of your URL. Enter the value of your choice (e.g., xc78ygvk).
+- Prefer a combination that is difficult to guess and remember to note your new URL in several places (in your note app, in your browser's favorites, etc.).
+- Specify a redirect URL (e.g., https://yoursite.fr/404), to which unconnected bots or hackers wishing to access your login page will be sent. Check the associated box if you want to take advantage of this option.
+
+### Hide the WordPress Version
+
+WordPress by default inserts a meta tag containing the WordPress version number. This meta-element identifies the version of WordPress you are currently using and is used for tracking purposes.
+
+Unbeknownst to you, the WordPress version number reveals additional information about your website. WordPress tracks changes in detailed reports every time it publishes updates or fixes issues. This means that everyone knows which versions are affected by which security flaws. Specifically, this implies that hackers know the best type of attack to deploy on your site. For this reason, it is crucial to hide your version number. By merely looking at your website's source code in any web browser, any hacker can discover the WordPress version you are using.
+
+How does a hacker search for your WordPress version?
+- Observing the source of your website's page.
+- By obtaining your RSS feed.
+- By browsing your readme file.
+
+### Hide the WP Version Using a Plugin
+
+The WP Security Safe plugin will be used to demonstrate the method for hiding your WordPress version. With this plugin, you can hide your WordPress version number without any coding. This is especially useful if you do not know how to access your website's theme files or if you want to avoid accidental mistakes.
+
+Follow these steps to hide your WordPress version:
+1. Install and activate the WP Security Safe plugin from the WordPress repository.
+2. In your WordPress dashboard, go to Security -> WP Security Safe.
+3. In the WP Security Safe settings, click on the tab labeled “WordPress.”
+4. Check the box next to "Remove WP Version."
+5. Click “Save Changes.”
+
+Now, your WordPress version number should be removed from all locations, including the head section, RSS feeds, and the readme file.
+
+This method is much more straightforward than manually editing your theme's files, and it's reversible. If you want to display your WordPress version number again, simply uncheck the box and save your changes.
+
+## Disable XML-RPC
+
+In recent years, XML-RPC has become an increasingly significant target for brute force attacks. One of the hidden features of XML-RPC is that you can use the system.multicall method to execute multiple methods within a single request. This is very useful because it allows the application to pass multiple commands within an HTTP request. But what also happens is that it is used for malicious purposes.
+
+### Plugins and Tools
+
+There are a few WordPress plugins like Jetpack that rely on XML-RPC, but most people won't need it, and it may be beneficial simply to disable access. Don't know if XML-RPC is currently working on your website? Danilo Ercoli from the Automattic team wrote a small tool called XML-RPC Validator. You can run your WordPress site through this to see if XML-RPC is enabled. If not, you will see a failure message.
+
+### How to Disable XML-RPC
+
+To completely disable this function, you can install the free Disable XML-RPC-API extension. Or you can disable it with the premium perfmatters extension, which also contains web performance improvements.
+
+The installation of an extension to disable xmlrpc.php is the simplest way to proceed. The Disable XML-RPC extension will disable it completely.
+
+Once installed, You have nothing else to do: activating the extension will result in the deactivation of XML-RPC.
+
+## WPS Limit Login
+
+WPS Limit Login allows you to limit login attempts to your WordPress administration.
+
+It consists of 4 blocks:
+- Configuration
+- Whitelist: Define a list of IP addresses that will have no attempt limit and will never be blocked. Be careful; you must put trusted IP addresses (e.g., your home IP address); you must never put the IP address of a public network (Cyber cafe or other).
+- Blacklist: Define a list of IP addresses for which you want to completely block access to the login page.
+- Blocking log
+
+### Connection and Display Names Must Be Different for WordPress
+
+Login or user names can be the same as your display name on the front-end, such as the author of a blog post. Or available in an RSS feed, etc. This creates instant vulnerability because your login name is available to everyone.
+
+#### Edit Your Display Name
+
+You can change the full names, but the options are limited because they are based on the first entries when creating the user. Go to the accounts tab and change the name to be displayed publicly.
+
+### Regularly Update Your Site and Your Plugins
+
+Another vital way to strengthen your WordPress security is to always keep it up to date. This includes the WordPress core, plugins, and themes (those in the WordPress repository and those that are Premium). These are updated for a reason, and they often include security improvements and bug fixes.
+
+### Generate an SSL Certificate
+
+An SSL certificate (Secure Socket Layer) is a means of securing communications between a browser and a web server. It allows for the encryption of sensitive data transmitted between the two, such as the information...
 ### My Role
 
 As the project manager, my responsibilities included:
@@ -43,6 +196,8 @@ David's responsibilities encompassed:
 - **WordPress**: Used for website content management.
 - **Apache**: Web server used in conjunction with WordPress.
 - **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
+
+## O. WordPress Hardening
 
 
 ## I. Apache Web Server Hardening
