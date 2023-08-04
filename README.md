@@ -45,7 +45,7 @@ David's responsibilities encompassed:
 - **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
 
 ### I. WordPress Hardening
-## What is the Importance of Security for a WordPress Site?
+### What is the Importance of Security for a WordPress Site?
 
 The security of your site is paramount. In case of hacking, the consequences can be very unfortunate and result in:
 - the loss and theft of numerous data, more or less sensitive, especially those of your customers.
