@@ -17,6 +17,35 @@ The goal of this document is to provide a procedure to strengthen the security o
 This project focuses on the deployment of WordPress on an Ubuntu server and the securing of various components, including WordPress, Apache, and Ubuntu. The team, consisting of three members, diligently collaborated to achieve the project's goals.
 
 ## Team Members
+
+### My Role
+
+As the project manager, my responsibilities included:
+
+- Steering the project and ensuring that goals and timelines were met.
+- Securing Apache by implementing appropriate measures to protect against potential vulnerabilities.
+
+### Leslie's Role
+
+Leslie was responsible for:
+
+- Installing WordPress on the server.
+- Implementing security measures for WordPress to ensure protection against common threats.
+
+### David's Role
+
+David's responsibilities encompassed:
+
+- Securing Ubuntu, taking necessary precautions to make sure the operating system was safe and resistant to attacks.
+
+## Technology Stack
+
+- **WordPress**: Used for website content management.
+- **Apache**: Web server used in conjunction with WordPress.
+- **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
+
+## O. WordPress Hardening
+
 # What is the Importance of Security for a WordPress Site?
 
 The security of your site is paramount. In case of hacking, the consequences can be very unfortunate and result in:
@@ -171,34 +200,6 @@ Another vital way to strengthen your WordPress security is to always keep it up 
 ### Generate an SSL Certificate
 
 An SSL certificate (Secure Socket Layer) is a means of securing communications between a browser and a web server. It allows for the encryption of sensitive data transmitted between the two, such as the information...
-### My Role
-
-As the project manager, my responsibilities included:
-
-- Steering the project and ensuring that goals and timelines were met.
-- Securing Apache by implementing appropriate measures to protect against potential vulnerabilities.
-
-### Leslie's Role
-
-Leslie was responsible for:
-
-- Installing WordPress on the server.
-- Implementing security measures for WordPress to ensure protection against common threats.
-
-### David's Role
-
-David's responsibilities encompassed:
-
-- Securing Ubuntu, taking necessary precautions to make sure the operating system was safe and resistant to attacks.
-
-## Technology Stack
-
-- **WordPress**: Used for website content management.
-- **Apache**: Web server used in conjunction with WordPress.
-- **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
-
-## O. WordPress Hardening
-
 
 ## I. Apache Web Server Hardening
 
