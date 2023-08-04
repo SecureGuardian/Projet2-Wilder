@@ -45,63 +45,63 @@ David's responsibilities encompassed:
 - **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
 
 
-## I. Hardening de serveur web Apache
+## I. Apache Web Server Hardening
 
-1. Assurez-vous que le module Autoindex est désactivé (Automatisé)
+1. Ensure that the Autoindex module is disabled (Automated)
     ```bash
     root@wild-groupe-02:/# apachectl -M | grep autoindex_module
     root@wild-groupe-02:/#
     ```
-    - Cette commande vérifie si le module Autoindex est activé.
-    - La commande pour désactiver Autoindex est : 
+    - This command checks if the Autoindex module is enabled.
+    - The command to disable Autoindex is:
     ```bash
     root@wild-groupe-02:/# a2dismod -f autoindex
     Module autoindex already disabled
     root@wild-groupe-02:/#
     ```
-2. Assurez-vous que les modules Proxy sont désactivés
+2. Ensure that Proxy modules are disabled
     ```bash
     root@wild-groupe-02:/# apachectl -M | grep proxy_
     root@wild-groupe-02:/#
     ```
-    - Cette commande vérifie si les modules Proxy sont activés.
-    - La commande pour désactiver Proxy est :
+    - This command checks if the Proxy modules are enabled.
+    - The command to disable Proxy is:
     ```bash
     root@wild-groupe-02:/# a2dismod proxy
     Module proxy already disabled
     root@wild-groupe-02:/#
     ```
-3. Assurez-vous que le module des répertoires utilisateur est désactivé (Automatisé)
+3. Ensure that the Userdir module is disabled (Automated)
     ```bash
     root@wild-groupe-02:/# apachectl -M | grep userdir_
     root@wild-groupe-02:/#
     ```
-    - Cette commande vérifie si le module Userdir est activé. 
-    - La commande pour désactiver Userdir est :
+    - This command checks if the Userdir module is enabled.
+    - The command to disable Userdir is:
     ```bash
     root@wild-groupe-02:/# a2dismod userdir
     Module userdir already disabled
     root@wild-groupe-02:/#
     ```
-4. Assurez-vous que le module Info est désactivé (Automatisé)
+4. Ensure that the Info module is disabled (Automated)
     ```bash
     root@wild-groupe-02:/# apachectl -M | grep 'info_module'
     root@wild-groupe-02:/#
     ```
-    - Cette commande vérifie si le module Info est activé. 
-    - La commande pour désactiver Info est :
+    - This command checks if the Info module is enabled.
+    - The command to disable Info is:
     ```bash
     root@wild-groupe-02:/# a2dismod info
     Module info already disabled
     root@wild-groupe-02:/#
     ```
-5. Assurez-vous que les modules d'authentification Basic et Digest sont désactivés
+5. Ensure that Basic and Digest Authentication Modules are disabled
     ```bash
     root@wild-groupe-02:/# apachectl -M | grep auth_basic_module
     root@wild-groupe-02:/#
     ```
-    - Cette commande vérifie si le module d'authentification Basic est activé.
-    - La commande pour désactiver Basic et Digest Authentication Modules est :
+    - This command checks if the Basic Authentication module is enabled.
+    - The command to disable Basic and Digest Authentication Modules is:
     ```bash
     root@wild-groupe-02:/# a2dismod -f auth_basic
     Module auth_basic already disabled
@@ -109,7 +109,7 @@ David's responsibilities encompassed:
     Module auth_digest already disabled
     root@wild-groupe-02:/#
     ```
-6. Assurez-vous que le compte utilisateur Apache a un shell non valide (Automatisé)
+6. Ensure that the Apache user account has an invalid shell (Automated)
     ```bash
     root@wild-groupe-02:~$ useradd apache
     root@wild-groupe-02:~$ chsh -s /sbin/nologin apache
@@ -117,50 +117,50 @@ David's responsibilities encompassed:
     apache:x:1005:1006::/home/apache:/sbin/nologin
     arafiki@wild-groupe-02:~$
     ```
-    - Ces commandes créent un nouvel utilisateur appelé "apache", définissent son shell comme "/sbin/nologin" pour empêcher l'utilisateur de se connecter interactivement, puis vérifient que le shell a été correctement défini.
-7. Assurez-vous que le compte utilisateur Apache est verrouillé (Automatisé)
+    - These commands create a new user called "apache", set its shell to "/sbin/nologin" to prevent the user from logging in interactively, then check that the shell has been properly set.
+7. Ensure that the Apache user account is locked (Automated)
     ```bash
     root@wild-groupe-02:/home/arafiki# passwd -S apache
     apache L 07/27/2023 0 99999 7 -1
     ```
-    - La commande passwd -S apache affiche l'état du compte utilisateur Apache.
+    - The passwd -S apache command displays the status of the Apache user account.
 
-## II. Audit Lynis sur Apache - Remédiation
+## II. Lynis Audit on Apache - Remediation
 
-L'audit Lynis sur Apache remonté les deux failles suivantes :
-  la faille HTTP-6640 - mod_evasive module et la faille HTTP-6643 - mod_security module
+The Lynis audit on Apache raised the following two vulnerabilities:
+  the HTTP-6640 flaw - mod_evasive module, and the HTTP-6643 flaw - mod_security module
 
-1. Corriger la faille HTTP-6640 - mod_evasive module : 
-    Installer ou mettre à jour mod_evasive : Vérifiez d'abord si le module mod_evasive est déjà installé :
+1. Fix the HTTP-6640 flaw - mod_evasive module:
+    Install or update mod_evasive: First check if the mod_evasive module is already installed:
     ```bash
     root@wild-groupe-02:/# apache2ctl -M | grep evasive
     ```
-    Si ce n'est pas installé, installez-le :
+    If not installed, install it:
     ```bash
     root@wild-groupe-02:/# apt update
     root@wild-groupe-02:/# apt install libapache2-mod-evasive
     ```
-    Si le module est déjà installé, mettez-le à jour :
+    If the module is already installed, update it:
     ```bash
     root@wild-groupe-02:/# apt upgrade libapache2-mod-evasive
     ```
-    Redémarrez ensuite Apache pour appliquer les changements :
+    Then restart Apache to apply the changes:
     ```bash
     root@wild-groupe-02:/# service apache2 restart
     ```
-    Configurer le module mod_evasive : Accédez au répertoire de configuration d'Apache pour les modules disponibles :
+    Configure the mod_evasive module: Navigate to the Apache configuration directory for available modules:
     ```bash
     root@wild-groupe-02:/# cd /etc/apache2/mods-available/
     ```
-    Activez le module mod_evasive :
+    Enable the mod_evasive module:
     ```bash
     root@wild-groupe-02:/# a2enmod evasive
     ```
-    Ouvrez le fichier de configuration evasive.conf avec un éditeur de texte :
+    Open the evasive.conf configuration file with a text editor:
     ```bash
     root@wild-groupe-02:/# nano evasive.conf
     ```
-    Décommenter les configurations par défaut et ajouter les nouvelles valeurs proposées :
+    Uncomment the default configurations and add the proposed new values:
 
     ```
     DOSPageCount   100
@@ -168,16 +168,16 @@ L'audit Lynis sur Apache remonté les deux failles suivantes :
     DOSPageInterval   2
     DOSSiteInterval   5
     ```
-    Redémarrez Apache pour appliquer les changements de configuration :
+    Restart Apache to apply the configuration changes:
     ```bash
     root@wild-groupe-02:/# service apache2 restart
     ```
-2. Corriger la faille HTTP-6643 - mod_security module :
-    Installation de ModSecurity :
+2. Fix the HTTP-6643 flaw - mod_security module:
+    Installation of ModSecurity:
     ```bash
     root@wild-groupe-02:/# apt install libapache2-mod-security2
     ```
-    Activation de ModSecurity :
+    Activation of ModSecurity:
     ```bash
     root@wild-groupe-02:/# a2enmod security2
     root@wild-groupe-02:/# service apache2 restart
