@@ -44,7 +44,7 @@ David's responsibilities encompassed:
 - **Apache**: Web server used in conjunction with WordPress.
 - **Ubuntu**: The operating system on which both WordPress and Apache were deployed.
 
-## O. WordPress Hardening
+### O. WordPress Hardening
 
 # What is the Importance of Security for a WordPress Site?
 
