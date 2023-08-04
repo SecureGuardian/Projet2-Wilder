@@ -610,8 +610,7 @@ Determine action on packets based on convergence criteria
 (see Main rule settings)
 
 
-**
-Tables of hooks and table family**:                            
+**Tables of hooks and table family**:                            
 |   main hooks            |   Table family              |   Role                                 |
 |-------------------------|-----------------------------|----------------------------------------|
 |   prerouting            | Bridge, ip, ipv6,inet       |  Packets arriving at the machine       |
