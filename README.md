@@ -749,7 +749,7 @@ backend = %(sshd_backend)s
 maxretry = 5
 ```
 
-redemarrer:
+restart:
 ```bash
 root@wild-groupe-02:~$ sudo service fail2ban restart
 ```
